@@ -1,0 +1,28 @@
+h1, h2, h3, h4 {
+  color: $black;
+  font-weight: $font-bold;
+}
+
+h1 {
+  font-size: $font-xl;
+  line-height: $line-xl;
+  letter-spacing: $letter-xl;
+}
+
+h2 {
+  font-size: $font-lg;
+  line-height: $line-md;
+  letter-spacing: $letter-md;
+}
+
+h3 {
+  font-size: $font-md;
+  line-height: $line-lg;
+  letter-spacing: $letter-lg;
+}
+
+h4 {
+  font-size: $font-sm;
+  line-height: $line-xs;
+  letter-spacing: $letter-sm;
+}
