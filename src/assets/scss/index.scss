@@ -3,6 +3,7 @@
 @import 'utilities/_buttons';
 @import 'utilities/_inputs';
 @import 'utilities/_headers';
+@import 'utilities/_display';
 
 * {
   box-sizing: border-box;
@@ -11,5 +12,6 @@
 }
 
 body {
+  background-color: $gray-lighter;
   font-family: 'Spartan', sans-serif;
 }
