@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Dropdown from '@/components/Dropdown.vue'
 import AddButton from '@/components/AddButton.vue'
 import InvoiceListItem from '@/components/InvoiceListItem.vue'
@@ -36,6 +37,12 @@ export default {
     return {
       displayDropdown: false
     }
+  },
+  created() {
+    this.fetchInvoices()
+  },
+  methods: {
+    ...mapActions(['fetchInvoices'])
   }
 }
 </script>
