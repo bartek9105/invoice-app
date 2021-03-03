@@ -1,9 +1,13 @@
 @import 'variables/_colors';
 @import 'variables/_typography';
+@import 'variables/_shadows';
 @import 'utilities/_buttons';
 @import 'utilities/_inputs';
 @import 'utilities/_headers';
 @import 'utilities/_display';
+@import 'utilities/_spacing';
+@import 'utilities/_typography';
+@import 'utilities/_colors';
 
 * {
   box-sizing: border-box;
