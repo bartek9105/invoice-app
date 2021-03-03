@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="flex-sb">
+    <header class="header flex-sb">
       <div class="flex-col">
         <h1 class="mb-16">Invoices</h1>
         <span class="font-12 gray">There are 7 total invoices</span>
@@ -16,18 +16,21 @@
         <AddButton />
       </div>
     </header>
+    <InvoiceListItem />
   </div>
 </template>
 
 <script>
 import Dropdown from '@/components/Dropdown.vue'
 import AddButton from '@/components/AddButton.vue'
+import InvoiceListItem from '@/components/InvoiceListItem.vue'
 
 export default {
   name: 'Home',
   components: {
     Dropdown,
-    AddButton
+    AddButton,
+    InvoiceListItem
   },
   data() {
     return {
@@ -38,6 +41,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header {
+  margin-bottom: 65px;
+}
 .status-filter {
   position: relative;
   cursor: pointer;
