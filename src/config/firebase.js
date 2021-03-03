@@ -1,4 +1,6 @@
-export default {
+import firebase from 'firebase'
+
+const firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_APIKEY,
   authDomain: process.env.VUE_APP_FIREBASE_AUTHDOMAIN,
   projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
@@ -7,3 +9,9 @@ export default {
   appId: process.env.VUE_APP_FIREBASE_APP_ID,
   databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL
 }
+
+firebase.initializeApp(firebaseConfig)
+
+const db = firebase.database()
+
+export default db
