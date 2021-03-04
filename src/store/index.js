@@ -8,6 +8,11 @@ export default new Vuex.Store({
   state: {
     invoices: []
   },
+  getters: {
+    invoices(state) {
+      return state.invoices
+    }
+  },
   mutations: {
     SET_INVOICES(state, invoices) {
       state.invoices = invoices

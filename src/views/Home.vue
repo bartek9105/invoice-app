@@ -16,33 +16,26 @@
         <AddButton />
       </div>
     </header>
-    <InvoiceListItem />
+    <InvoiceList />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import Dropdown from '@/components/Dropdown.vue'
 import AddButton from '@/components/AddButton.vue'
-import InvoiceListItem from '@/components/InvoiceListItem.vue'
+import InvoiceList from '@/components/InvoiceList.vue'
 
 export default {
   name: 'Home',
   components: {
     Dropdown,
     AddButton,
-    InvoiceListItem
+    InvoiceList
   },
   data() {
     return {
       displayDropdown: false
     }
-  },
-  created() {
-    this.fetchInvoices()
-  },
-  methods: {
-    ...mapActions(['fetchInvoices'])
   }
 }
 </script>
