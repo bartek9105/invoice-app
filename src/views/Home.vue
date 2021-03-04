@@ -3,7 +3,7 @@
     <header class="header flex-sb">
       <div class="flex-col">
         <h1 class="mb-16">Invoices</h1>
-        <span class="font-12 gray">There are 7 total invoices</span>
+        <span class="font-12 gray">There are {{ invoices.length }} total invoices</span>
       </div>
       <div class="flex-sb">
         <div class="status-filter mr-40">
