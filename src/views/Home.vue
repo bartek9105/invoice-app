@@ -11,12 +11,12 @@
             Filter by status
           </span>
           <img src="@/assets/icons/arrow.svg" />
-          <Dropdown v-if="displayDropdown" class="dropdown" />
+          <Dropdown v-if="displayDropdown" class="dropdown" @statusFilter="filter" />
         </div>
         <AddButton />
       </div>
     </header>
-    <InvoiceList />
+    <InvoiceList :filter-status="filterStatus" />
   </div>
 </template>
 
@@ -34,7 +34,13 @@ export default {
   },
   data() {
     return {
-      displayDropdown: false
+      displayDropdown: false,
+      filterStatus: []
+    }
+  },
+  methods: {
+    filter(status) {
+      this.filterStatus = status
     }
   }
 }

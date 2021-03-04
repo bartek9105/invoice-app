@@ -9,7 +9,12 @@ export default new Vuex.Store({
     invoices: []
   },
   getters: {
-    invoices(state) {
+    invoices: state => filters => {
+      if (filters.length > 0) {
+        return state.invoices.filter(invoice => {
+          return filters.includes(invoice.status)
+        })
+      }
       return state.invoices
     }
   },
