@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import InvoiceListItem from '@/components/InvoiceListItem.vue'
 
 export default {
@@ -14,21 +13,10 @@ export default {
     InvoiceListItem
   },
   props: {
-    filterStatus: {
+    invoices: {
       type: Array,
       default: () => []
     }
-  },
-  computed: {
-    invoices() {
-      return this.$store.getters.invoices(this.filterStatus)
-    }
-  },
-  created() {
-    this.fetchInvoices()
-  },
-  methods: {
-    ...mapActions(['fetchInvoices'])
   }
 }
 </script>

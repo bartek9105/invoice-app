@@ -16,11 +16,12 @@
         <AddButton />
       </div>
     </header>
-    <InvoiceList :filter-status="filterStatus" />
+    <InvoiceList :invoices="invoices" />
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Dropdown from '@/components/Dropdown.vue'
 import AddButton from '@/components/AddButton.vue'
 import InvoiceList from '@/components/InvoiceList.vue'
@@ -38,7 +39,17 @@ export default {
       filterStatus: []
     }
   },
+
+  computed: {
+    invoices() {
+      return this.$store.getters.invoices(this.filterStatus)
+    }
+  },
+  created() {
+    this.fetchInvoices()
+  },
   methods: {
+    ...mapActions(['fetchInvoices']),
     filter(status) {
       this.filterStatus = status
     }
