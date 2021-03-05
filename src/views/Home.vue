@@ -16,7 +16,16 @@
         <AddButton />
       </div>
     </header>
-    <InvoiceList :invoices="invoices" />
+    <InvoiceList v-if="invoices.length > 0" :invoices="invoices" />
+    <div v-else class="text-center">
+      <img class="mb-64" src="@/assets/icons/empty.svg" alt="No invoices" />
+      <h2 class="mb-24">There is nothing here</h2>
+      <p class="font-12 gray line-15">
+        Create an invoice by clicking the <br />
+        <span class="bold">New Invoice</span>
+        button and get started
+      </p>
+    </div>
   </div>
 </template>
 
