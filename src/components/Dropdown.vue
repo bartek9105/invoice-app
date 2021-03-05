@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown flex col">
+  <div class="dropdown flex col bg-white font-12 bold px-24 py-24 index-1 shadow radius-8">
     <div class="mb-16">
       <input
         id="draft"
@@ -57,13 +57,6 @@ export default {
 
 <style lang="scss" scoped>
 .dropdown {
-  background-color: #fff;
-  box-shadow: $shadow;
-  border-radius: 8px;
-  font-size: $font-sm;
-  font-weight: $font-bold;
-  padding: 24px;
   width: 192px;
-  z-index: 1;
 }
 </style>

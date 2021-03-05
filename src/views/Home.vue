@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <header class="header flex justify-sb">
+    <header class="mb-64 flex justify-sb">
       <div class="flex col">
         <h1 class="mb-16">Invoices</h1>
         <span class="font-12 gray">There are {{ invoices.length }} total invoices</span>
       </div>
       <div class="flex justify-sb align-c">
-        <div class="status-filter mr-40">
+        <div class="status-filter pointer mr-40">
           <span class="bold font-12 mr-16" @click="displayDropdown = !displayDropdown">
             Filter by status
           </span>
@@ -67,12 +67,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  margin-bottom: 65px;
-}
 .status-filter {
   position: relative;
-  cursor: pointer;
 }
 .dropdown {
   position: absolute;

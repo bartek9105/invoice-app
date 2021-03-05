@@ -8,6 +8,8 @@
 @import 'utilities/_spacing';
 @import 'utilities/_typography';
 @import 'utilities/_colors';
+@import 'utilities/_shadows';
+@import 'utilities/_borders';
 
 * {
   box-sizing: border-box;
@@ -17,4 +19,8 @@
 body {
   background-color: $gray-lighter;
   font-family: 'Spartan', sans-serif;
+}
+
+.pointer {
+  cursor: pointer;
 }

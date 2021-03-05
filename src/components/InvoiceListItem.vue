@@ -1,5 +1,7 @@
 <template>
-  <div class="list-item bg-white flex justify-sb align-c font-12 mb-16">
+  <div
+    class="list-item bg-white flex justify-sb align-c font-12 mb-16 radius-8 shadow px-32 py-16 pointer"
+  >
     <span class="black bold">{{ invoice.id }}</span>
     <span class="violet-gray">Due {{ invoice.paymentDue }}</span>
     <span class="violet-gray">{{ invoice.clientName }}</span>
@@ -62,10 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 .list-item {
-  border-radius: 8px;
-  padding: 16px 32px;
-  box-shadow: $shadow;
-  cursor: pointer;
   border: 1px solid #fff;
   transition: border 0.2s;
   &:hover {
@@ -75,6 +73,5 @@ export default {
 .status-badge {
   width: 104px;
   height: 40px;
-  text-align: center;
 }
 </style>
