@@ -4,20 +4,22 @@
   padding: 64px 0;
 }
 
-.flex-c {
+.flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.flex-sb {
-  display: flex;
+.justify-c {
+  justify-content: center;
+}
+
+.justify-sb {
   justify-content: space-between;
+}
+
+.align-c {
   align-items: center;
 }
 
-.flex-col {
-  display: flex;
+.col {
   flex-direction: column;
-  justify-content: center;
 }

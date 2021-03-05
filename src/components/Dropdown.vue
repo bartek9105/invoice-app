@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown flex-col">
+  <div class="dropdown flex col">
     <div class="mb-16">
       <input
         id="draft"

@@ -1,10 +1,10 @@
 <template>
-  <div class="list-item bg-white flex-sb font-12 mb-16">
+  <div class="list-item bg-white flex justify-sb align-c font-12 mb-16">
     <span class="black bold">{{ invoice.id }}</span>
     <span class="violet-gray">Due {{ invoice.paymentDue }}</span>
     <span class="violet-gray">{{ invoice.clientName }}</span>
     <span class="black bold font-16">£ {{ invoice.total }}</span>
-    <span class="status-badge flex-c bold" :class="statusColor">
+    <span class="status-badge flex justify-c align-c bold" :class="statusColor">
       <svg
         class="mr-8"
         width="8"

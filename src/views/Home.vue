@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <header class="header flex-sb">
-      <div class="flex-col">
+    <header class="header flex justify-sb">
+      <div class="flex col">
         <h1 class="mb-16">Invoices</h1>
         <span class="font-12 gray">There are {{ invoices.length }} total invoices</span>
       </div>
-      <div class="flex-sb">
+      <div class="flex justify-sb align-c">
         <div class="status-filter mr-40">
           <span class="bold font-12 mr-16" @click="displayDropdown = !displayDropdown">
             Filter by status
