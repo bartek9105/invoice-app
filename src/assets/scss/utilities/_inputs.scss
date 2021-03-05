@@ -1,14 +1,14 @@
 .input-label {
   color: $violet-gray;
   font-size: $font-sm;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .input {
   background-color: #FFF;
   border: $violet-light;
   color: $black;
-  padding: 16px 20px;
+  padding: 1rem 1.25rem;
   &:focus {
     border: $violet-lighter;
   }
