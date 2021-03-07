@@ -1,15 +1,123 @@
 @import 'variables/_colors';
 @import 'variables/_typography';
-@import 'utilities/_buttons';
-@import 'utilities/_inputs';
-@import 'utilities/_headers';
+@import 'variables/_shadows';
 
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 body {
+  background-color: $bg-gray;
   font-family: 'Spartan', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $black;
+  font-weight: $font-bold;
+}
+
+h1 {
+  font-size: $font-xl;
+  line-height: $line-height-xl;
+  letter-spacing: $letter-spacing-sm;
+  @media (max-width: 600px) {
+    font-size: $font-lg;
+  }
+}
+
+h2 {
+  font-size: $font-lg;
+  line-height: $line-height-lg;
+  letter-spacing: $letter-spacing-md;
+}
+
+h3 {
+  font-size: $font-md;
+  line-height: $line-height-md;
+  letter-spacing: $letter-spacing-lg;
+}
+
+h4 {
+  font-size: $font-sm;
+  line-height: $line-height-sm;
+  letter-spacing: $letter-spacing-xl;
+}
+
+.btn {
+  border: 0;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-size: $font-sm;
+  font-weight: $font-bold;
+  padding: .5rem 1rem .5rem .5rem;
+}
+
+.btn-purple {
+  background-color: $violet;
+  color: $white;
+
+  &:hover {
+    background-color: $violet-hover;
+  }
+}
+
+.container {
+  max-width: 730px;
+  margin: 0 auto;
+  padding-top: 4.5rem;
+  @media (max-width: 768px) {
+    padding: 4.5rem 3rem 0 3rem;
+  }
+    @media (max-width: 600px) {
+      padding: 4.5rem 1.5rem 0 1.5rem;
+    }
+}
+
+.flex-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-sb-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.green {
+  color: $green;
+}
+
+.bg-green {
+  background-color: $green-light;
+}
+
+.orange {
+  color: $orange;
+}
+
+.bg-orange {
+  background-color: $orange-light;
+}
+
+.gray {
+  color: $gray;
+}
+
+.bg-gray {
+  background-color: $gray-light;
+}
+
+.black {
+  color: $black;
 }
