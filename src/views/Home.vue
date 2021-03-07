@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <header class="mb-64 flex justify-sb">
-      <div class="flex col">
-        <h1 class="mb-16">Invoices</h1>
-        <span class="font-12 gray">There are {{ invoices.length }} total invoices</span>
+    <header class="header">
+      <div>
+        <h1>Invoices</h1>
+        <span class="header__total">There are {{ invoices.length }} total invoices</span>
       </div>
-      <div class="flex justify-sb align-c">
-        <div class="status-filter pointer mr-40">
-          <span class="bold font-12 mr-16" @click="displayDropdown = !displayDropdown">
+      <div class="header__actions">
+        <div class="header__filter">
+          <span @click="displayDropdown = !displayDropdown">
             Filter by status
           </span>
           <img src="@/assets/icons/arrow.svg" />
@@ -17,12 +17,12 @@
       </div>
     </header>
     <InvoiceList v-if="invoices.length > 0" :invoices="invoices" />
-    <div v-else class="text-center">
-      <img class="mb-64" src="@/assets/icons/empty.svg" alt="No invoices" />
-      <h2 class="mb-24">There is nothing here</h2>
-      <p class="font-12 gray line-15">
+    <div v-else>
+      <img src="@/assets/icons/empty.svg" alt="No invoices" />
+      <h2>There is nothing here</h2>
+      <p>
         Create an invoice by clicking the <br />
-        <span class="bold">New Invoice</span>
+        <span>New Invoice</span>
         button and get started
       </p>
     </div>
@@ -67,8 +67,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.status-filter {
-  position: relative;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  line-height: $line-height-sm;
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+  &__total {
+    display: block;
+    font-size: $font-sm;
+    color: $violet-light;
+    margin-top: 0.5rem;
+  }
+  &__filter {
+    font-size: $font-sm;
+    font-weight: $font-bold;
+    position: relative;
+    cursor: pointer;
+    margin-right: 2.5rem;
+  }
 }
 .dropdown {
   position: absolute;

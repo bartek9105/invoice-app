@@ -1,15 +1,6 @@
 @import 'variables/_colors';
 @import 'variables/_typography';
 @import 'variables/_shadows';
-@import 'utilities/_buttons';
-@import 'utilities/_inputs';
-@import 'utilities/_headers';
-@import 'utilities/_display';
-@import 'utilities/_spacing';
-@import 'utilities/_typography';
-@import 'utilities/_colors';
-@import 'utilities/_shadows';
-@import 'utilities/_borders';
 
 * {
   box-sizing: border-box;
@@ -17,10 +8,62 @@
 }
 
 body {
-  background-color: $gray-lighter;
+  background-color: $bg-gray;
   font-family: 'Spartan', sans-serif;
 }
 
-.pointer {
+h1,
+h2,
+h3,
+h4 {
+  color: $black;
+  font-weight: $font-bold;
+}
+
+h1 {
+  font-size: $font-xl;
+  line-height: $line-height-xl;
+  letter-spacing: $letter-spacing-sm;
+}
+
+h2 {
+  font-size: $font-lg;
+  line-height: $line-height-lg;
+  letter-spacing: $letter-spacing-md;
+}
+
+h3 {
+  font-size: $font-md;
+  line-height: $line-height-md;
+  letter-spacing: $letter-spacing-lg;
+}
+
+h4 {
+  font-size: $font-sm;
+  line-height: $line-height-sm;
+  letter-spacing: $letter-spacing-xl;
+}
+
+.btn {
+  border: 0;
+  border-radius: 1.5rem;
   cursor: pointer;
+  font-size: $font-sm;
+  font-weight: $font-bold;
+  padding: .5rem 1rem .5rem .5rem;
+}
+
+.btn-purple {
+  background-color: $violet;
+  color: $white;
+
+  &:hover {
+    background-color: $violet-hover;
+  }
+}
+
+.container {
+  max-width: 730px;
+  margin: 0 auto;
+  padding-top: 4.5rem;
 }

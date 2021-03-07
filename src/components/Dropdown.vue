@@ -1,40 +1,40 @@
 <template>
-  <div class="dropdown flex col bg-white font-12 bold px-24 py-24 index-1 shadow radius-8">
-    <div class="mb-16">
+  <div class="dropdown">
+    <div class="dropdown__unit">
       <input
         id="draft"
         v-model="status"
+        class="dropdown__checkbox"
         type="checkbox"
         name="draft"
-        class="mr-12"
         value="draft"
         @change="emitStatusFilter"
       />
-      <label for="draft">Draft</label>
+      <label for="draft" class="dropdown__label">Draft</label>
     </div>
-    <div class="mb-16">
+    <div class="dropdown__unit">
       <input
         id="pending"
         v-model="status"
+        class="dropdown__checkbox"
         type="checkbox"
         name="pending"
-        class="mr-12"
         value="pending"
         @change="emitStatusFilter"
       />
-      <label for="pending">Pending</label>
+      <label for="pending" class="dropdown__label">Pending</label>
     </div>
-    <div>
+    <div class="dropdown__unit">
       <input
         id="Paid"
         v-model="status"
+        class="dropdown__checkbox"
         type="checkbox"
         name="Paid"
-        class="mr-12"
         value="paid"
         @change="emitStatusFilter"
       />
-      <label for="Paid">Paid</label>
+      <label for="Paid" class="dropdown__label">Paid</label>
     </div>
   </div>
 </template>
@@ -57,6 +57,23 @@ export default {
 
 <style lang="scss" scoped>
 .dropdown {
+  background-color: $white;
+  box-shadow: $shadow;
   width: 192px;
+  padding: 1.5rem;
+  &__unit {
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__checkbox {
+    margin-right: 0.75rem;
+  }
+  &__label {
+    color: $black;
+    font-size: $font-sm;
+    font-weight: $font-bold;
+    cursor: pointer;
+  }
 }
 </style>

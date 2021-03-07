@@ -1,14 +1,12 @@
 <template>
-  <div
-    class="list-item bg-white flex justify-sb align-c font-12 mb-16 radius-8 shadow px-32 py-16 pointer"
-  >
-    <span class="black bold">{{ invoice.id }}</span>
-    <span class="violet-gray">Due {{ invoice.paymentDue }}</span>
-    <span class="violet-gray">{{ invoice.clientName }}</span>
-    <span class="black bold font-16">£ {{ invoice.total }}</span>
-    <span class="status-badge flex justify-c align-c bold" :class="statusColor">
+  <div class="invoice-list-item">
+    <span class="invoice-list-item__id">{{ invoice.id }}</span>
+    <span class="invoice-list-item__date">Due {{ invoice.paymentDue }}</span>
+    <span class="invoice-list-item__name">{{ invoice.clientName }}</span>
+    <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
+    <span class="invoice-list-item__status" :class="statusColor">
       <svg
-        class="mr-8"
+        class="invoice-list-item__dot"
         width="8"
         height="8"
         viewBox="0 0 8 8"
@@ -42,7 +40,7 @@ export default {
         return 'orange bg-orange'
       }
       if (this.invoice.status === 'draft') {
-        return 'black bg-gray'
+        return 'gray bg-gray'
       }
       return ''
     },
@@ -63,15 +61,71 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.list-item {
-  border: 1px solid #fff;
-  transition: border 0.2s;
+.invoice-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+  line-height: $line-height-sm;
+  letter-spacing: $letter-spacing-xl;
+  font-size: $font-sm;
+  font-weight: $font-medium;
+  padding: 1rem 1.5rem 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: $shadow;
+  border: 1px solid $white;
+  border-radius: 0.5rem;
+  transition: border 0.2s ease-in-out;
+  cursor: pointer;
   &:hover {
     border: 1px solid $violet;
   }
+  &__id {
+    font-weight: $font-bold;
+    color: $black;
+  }
+  &__date {
+    color: $violet-lighter;
+  }
+  &__name {
+    color: $violet-gray;
+  }
+  &__total {
+    color: $black;
+    font-size: $font-md;
+    font-weight: $font-bold;
+    line-height: $line-height-lg;
+    letter-spacing: $letter-spacing-md;
+  }
+  &__status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $font-bold;
+    width: 104px;
+    height: 40px;
+    border-radius: 0.375rem;
+  }
+  &__dot {
+    margin-right: 0.5rem;
+  }
 }
-.status-badge {
-  width: 104px;
-  height: 40px;
+.green {
+  color: $green;
+}
+.bg-green {
+  background-color: $green-light;
+}
+.orange {
+  color: $orange;
+}
+.bg-orange {
+  background-color: $orange-light;
+}
+.gray {
+  color: $gray;
+}
+.bg-gray {
+  background-color: $gray-light;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <button class="btn btn-purple btn-add flex justify-sb align-c">
-    <img src="@/assets/icons/plus.svg" alt="Add" class="mr-16" />
+  <button class="btn btn-purple add-btn">
+    <img src="@/assets/icons/plus.svg" alt="Add" class="add-btn__icon" />
     New invoice
   </button>
 </template>
@@ -11,4 +11,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.add-btn {
+  display: flex;
+  align-items: center;
+  &__icon {
+    margin-right: 1rem;
+  }
+}
+</style>
