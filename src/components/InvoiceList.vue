@@ -1,6 +1,10 @@
 <template>
   <div>
-    <InvoiceListItem v-for="invoice in invoices" :key="invoice.id" :invoice="invoice" />
+    <div v-for="invoice in invoices" :key="invoice.id">
+      <router-link :to="{ name: 'InvoiceDetails', params: { id: invoice.id } }">
+        <InvoiceListItem :invoice="invoice" />
+      </router-link>
+    </div>
   </div>
 </template>
 
