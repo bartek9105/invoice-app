@@ -16,7 +16,7 @@
         <circle cx="4" cy="4" r="4" :fill="dotColor" />
       </svg>
 
-      {{ invoice.status }}
+      {{ invoiceStatus }}
     </span>
     <img src="@/assets/icons/arrow-right.svg" />
   </div>
@@ -55,6 +55,9 @@ export default {
         return '#0C0E16'
       }
       return ''
+    },
+    invoiceStatus() {
+      return this.invoice.status[0].toUpperCase() + this.invoice.status.slice(1)
     }
   }
 }
