@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import Dropdown from '@/components/Dropdown.vue'
 import AddButton from '@/components/AddButton.vue'
 import InvoiceList from '@/components/InvoiceList.vue'
@@ -37,13 +37,16 @@ export default {
       filterStatus: []
     }
   },
-
   computed: {
+    ...mapGetters(['width']),
     invoices() {
       return this.$store.getters.invoices(this.filterStatus)
     },
     invoicesTotal() {
-      return `There are ${this.invoices.length} total invoices`
+      if (this.width >= 600) {
+        return `There are ${this.invoices.length} total invoices`
+      }
+      return `${this.invoices.length} invoices`
     }
   },
   created() {
@@ -65,6 +68,9 @@ export default {
   align-items: center;
   margin-bottom: 4rem;
   line-height: $line-height-sm;
+  @media (max-width: 600px) {
+    margin-bottom: 2rem;
+  }
   &__actions {
     display: flex;
     align-items: center;
@@ -74,9 +80,15 @@ export default {
     font-size: $font-sm;
     color: $violet-light;
     margin-top: 0.5rem;
+    @media (max-width: 600px) {
+      margin-top: 0.25rem;
+    }
   }
   &__filter {
     margin-right: 2.5rem;
+    @media (max-width: 768px) {
+      margin-right: 1rem;
+    }
   }
 }
 </style>

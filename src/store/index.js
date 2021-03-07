@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    invoices: []
+    invoices: [],
+    width: null
   },
   getters: {
     invoices: state => filters => {
@@ -16,11 +17,17 @@ export default new Vuex.Store({
         })
       }
       return state.invoices
+    },
+    width(state) {
+      return state.width
     }
   },
   mutations: {
     SET_INVOICES(state, invoices) {
       state.invoices = invoices
+    },
+    SET_WINDOW_WIDTH(state, width) {
+      state.width = width
     }
   },
   actions: {

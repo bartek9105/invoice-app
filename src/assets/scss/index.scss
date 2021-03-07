@@ -24,6 +24,9 @@ h1 {
   font-size: $font-xl;
   line-height: $line-height-xl;
   letter-spacing: $letter-spacing-sm;
+  @media (max-width: 600px) {
+    font-size: $font-lg;
+  }
 }
 
 h2 {
@@ -66,4 +69,55 @@ h4 {
   max-width: 730px;
   margin: 0 auto;
   padding-top: 4.5rem;
+  @media (max-width: 768px) {
+    padding: 4.5rem 3rem 0 3rem;
+  }
+    @media (max-width: 600px) {
+      padding: 4.5rem 1.5rem 0 1.5rem;
+    }
+}
+
+.flex-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-sb-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.green {
+  color: $green;
+}
+
+.bg-green {
+  background-color: $green-light;
+}
+
+.orange {
+  color: $orange;
+}
+
+.bg-orange {
+  background-color: $orange-light;
+}
+
+.gray {
+  color: $gray;
+}
+
+.bg-gray {
+  background-color: $gray-light;
+}
+
+.black {
+  color: $black;
 }

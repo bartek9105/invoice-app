@@ -1,28 +1,56 @@
 <template>
-  <div class="invoice-list-item">
-    <span class="invoice-list-item__id">{{ invoice.id }}</span>
-    <span class="invoice-list-item__date">Due {{ invoice.paymentDue }}</span>
-    <span class="invoice-list-item__name">{{ invoice.clientName }}</span>
-    <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
-    <span class="invoice-list-item__status" :class="statusColor">
-      <svg
-        class="invoice-list-item__dot"
-        width="8"
-        height="8"
-        viewBox="0 0 8 8"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="4" cy="4" r="4" :fill="dotColor" />
-      </svg>
-
-      {{ invoiceStatus }}
-    </span>
-    <img src="@/assets/icons/arrow-right.svg" />
+  <div>
+    <div v-if="width > 700" class="invoice-list-item invoice-list-item-desktop flex-sb-c">
+      <span class="invoice-list-item__id">{{ invoice.id }}</span>
+      <span class="invoice-list-item__date">Due {{ invoice.paymentDue }}</span>
+      <span class="invoice-list-item__name">{{ invoice.clientName }}</span>
+      <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
+      <span class="invoice-list-item__status" :class="statusColor">
+        <svg
+          class="invoice-list-item__dot"
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="4" cy="4" r="4" :fill="dotColor" />
+        </svg>
+        {{ invoiceStatus }}
+      </span>
+      <img src="@/assets/icons/arrow-right.svg" />
+    </div>
+    <div v-else class="invoice-list-item invoice-list-item-mobile">
+      <div class="flex-sb-c top-bar">
+        <span class="invoice-list-item__id">{{ invoice.id }}</span>
+        <span class="invoice-list-item__name">{{ invoice.clientName }}</span>
+      </div>
+      <div class="flex-sb-c">
+        <div class="flex-col">
+          <span class="invoice-list-item__date date">Due {{ invoice.paymentDue }}</span>
+          <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
+        </div>
+        <span class="invoice-list-item__status" :class="statusColor">
+          <svg
+            class="invoice-list-item__dot"
+            width="8"
+            height="8"
+            viewBox="0 0 8 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="4" cy="4" r="4" :fill="dotColor" />
+          </svg>
+          {{ invoiceStatus }}
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'InvoiceListItem',
   props: {
@@ -32,6 +60,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['width']),
     statusColor() {
       if (this.invoice.status === 'paid') {
         return 'green bg-green'
@@ -49,10 +78,10 @@ export default {
         return '#33D69F'
       }
       if (this.invoice.status === 'pending') {
-        return '#FF8F00'
+        return 'orange'
       }
       if (this.invoice.status === 'draft') {
-        return '#0C0E16'
+        return 'black'
       }
       return ''
     },
@@ -65,9 +94,6 @@ export default {
 
 <style lang="scss" scoped>
 .invoice-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: $white;
   line-height: $line-height-sm;
   letter-spacing: $letter-spacing-xl;
@@ -113,22 +139,12 @@ export default {
     margin-right: 0.5rem;
   }
 }
-.green {
-  color: $green;
-}
-.bg-green {
-  background-color: $green-light;
-}
-.orange {
-  color: $orange;
-}
-.bg-orange {
-  background-color: $orange-light;
-}
-.gray {
-  color: $gray;
-}
-.bg-gray {
-  background-color: $gray-light;
+.invoice-list-item-mobile {
+  .top-bar {
+    margin-bottom: 1.5rem;
+  }
+  .date {
+    margin-bottom: 0.5rem;
+  }
 }
 </style>

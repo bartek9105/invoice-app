@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="status-filter" @click="displayDropdown = !displayDropdown">
-      <span class="status-filter__text">
-        Filter by status
-      </span>
+      <span class="status-filter__text"> Filter <span v-if="width > 600"> by status </span> </span>
       <img src="@/assets/icons/arrow.svg" :class="{ rotate: displayDropdown }" />
     </div>
     <div v-if="displayDropdown" class="dropdown">
@@ -48,6 +46,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Dropdown',
   data() {
@@ -55,6 +55,9 @@ export default {
       status: [],
       displayDropdown: false
     }
+  },
+  computed: {
+    ...mapGetters(['width'])
   },
   methods: {
     emitStatusFilter() {
