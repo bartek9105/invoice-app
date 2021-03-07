@@ -1,7 +1,27 @@
 <template>
   <div id="app">
-    <router-view />
+    <TheNavbar />
+    <div class="wrapper">
+      <router-view />
+    </div>
   </div>
 </template>
 
-<style lang="scss"></style>
+<script>
+import TheNavbar from '@/components/TheNavbar.vue'
+
+export default {
+  components: {
+    TheNavbar
+  }
+}
+</script>
+
+<style lang="scss">
+.wrapper {
+  @media (min-width: 768px) {
+    margin-left: 103px;
+    padding: 0 1.5rem;
+  }
+}
+</style>
