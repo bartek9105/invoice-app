@@ -10,7 +10,7 @@
     >
       <circle cx="4" cy="4" r="4" :fill="iconColor" />
     </svg>
-    {{ status }}
+    {{ invoiceStatus }}
   </div>
 </template>
 
@@ -47,6 +47,9 @@ export default {
         return 'black'
       }
       return ''
+    },
+    invoiceStatus() {
+      return this.status[0].toUpperCase() + this.status.slice(1)
     }
   }
 }

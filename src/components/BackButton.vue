@@ -16,7 +16,11 @@ export default {
   font-size: $font-sm;
   font-weight: $font-bold;
   color: $black;
+  transition: color 0.2s ease-in-out;
   cursor: pointer;
+  &:hover {
+    color: $violet-lighter;
+  }
   &__icon {
     transform: rotate(90deg);
     margin-right: 1.5rem;

@@ -40,10 +40,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['width']),
-    invoiceStatus() {
-      return this.invoice.status[0].toUpperCase() + this.invoice.status.slice(1)
-    }
+    ...mapGetters(['width'])
   }
 }
 </script>
