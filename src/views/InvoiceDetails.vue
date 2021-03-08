@@ -8,7 +8,11 @@
         <span>Status</span>
         <StatusBadge :status="invoice.status" />
       </div>
-      <div>Buttons</div>
+      <div>
+        <Button type="edit" class="header__button">Edit</Button>
+        <Button type="delete" class="header__button">Delete</Button>
+        <Button>Mark as Paid</Button>
+      </div>
     </header>
   </div>
 </template>
@@ -16,12 +20,14 @@
 <script>
 import BackButton from '@/components/BackButton.vue'
 import StatusBadge from '@/components/StatusBadge.vue'
+import Button from '@/components/Button.vue'
 
 export default {
   name: 'InvoiceDetails',
   components: {
     BackButton,
-    StatusBadge
+    StatusBadge,
+    Button
   },
   props: {
     id: String
@@ -49,6 +55,9 @@ export default {
     span {
       margin-right: 1rem;
     }
+  }
+  &__button {
+    margin-right: 0.5rem;
   }
 }
 </style>

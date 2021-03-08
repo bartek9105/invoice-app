@@ -1,6 +1,7 @@
 @import 'variables/_colors';
 @import 'variables/_typography';
 @import 'variables/_shadows';
+@import 'variables/_transitions';
 
 * {
   box-sizing: border-box;
@@ -58,14 +59,30 @@ a {
   font-size: $font-sm;
   font-weight: $font-bold;
   padding: .5rem 1rem .5rem .5rem;
+  transition: $transition-bg;
 }
 
 .btn-purple {
   background-color: $violet;
   color: $white;
-
   &:hover {
     background-color: $violet-hover;
+  }
+}
+
+.btn-edit {
+  background-color: #F9FAFE;
+  color: $violet-lighter;
+  &:hover {
+    background-color: #DFE3FA;
+  }
+}
+
+.btn-delete {
+  background-color: $red;
+  color: $white;
+  &:hover {
+    background-color: $red-light;
   }
 }
 
