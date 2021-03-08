@@ -10,6 +10,9 @@ export default new Vuex.Store({
     width: null
   },
   getters: {
+    invoice: state => id => {
+      return state.invoices.filter(invoice => invoice.id === id)[0]
+    },
     invoices: state => filters => {
       if (filters.length > 0) {
         return state.invoices.filter(invoice => {

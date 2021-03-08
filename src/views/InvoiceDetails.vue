@@ -5,8 +5,8 @@
     </router-link>
     <header class="header flex-sb-c">
       <div class="header__status">
-        Status
-        <StatusBadge />
+        <span>Status</span>
+        <StatusBadge :status="invoice.status" />
       </div>
       <div>Buttons</div>
     </header>
@@ -25,6 +25,11 @@ export default {
   },
   props: {
     id: String
+  },
+  computed: {
+    invoice() {
+      return this.$store.getters.invoice(this.id)
+    }
   }
 }
 </script>
@@ -41,6 +46,9 @@ export default {
     align-items: center;
     font-size: $font-sm;
     color: $violet-gray;
+    span {
+      margin-right: 1rem;
+    }
   }
 }
 </style>
