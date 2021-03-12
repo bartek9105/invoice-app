@@ -2,6 +2,7 @@
 @import 'variables/_typography';
 @import 'variables/_shadows';
 @import 'variables/_transitions';
+@import 'variables/_borders';
 
 * {
   box-sizing: border-box;
@@ -11,6 +12,7 @@
 body {
   background-color: $bg-gray;
   font-family: 'Spartan', sans-serif;
+  font-weight: $font-medium;
 }
 
 h1,
@@ -108,6 +110,12 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.flex-sb-b {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .flex-col {
