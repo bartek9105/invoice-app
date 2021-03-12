@@ -18,7 +18,7 @@
       <div class="invoice__top flex-sb-b">
         <section>
           <h3 class="invoice__id">{{ invoice.id }}</h3>
-          <span class="invoice__description">{{ invoice.description }}</span>
+          <span class="invoice__label invoice__label--description">{{ invoice.description }}</span>
         </section>
         <section class="invoice__address flex-col">
           <span>{{ invoice.senderAddress.street }}</span>
@@ -54,37 +54,8 @@
         </div>
       </section>
       <section class="invoice__items">
-        <table v-if="width > 600" class="invoice__table">
-          <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>QTY.</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in invoice.items" :key="index">
-              <td>{{ item.name }}</td>
-              <td class="invoice__item-mod">{{ item.quantity }}</td>
-              <td class="invoice__item-mod">£ {{ item.price }}</td>
-              <td>£ {{ item.total }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div v-if="width <= 600" class="invoice__list">
-          <div
-            v-for="(item, index) in invoice.items"
-            :key="index"
-            class="invoice__list__item flex-sb-c"
-          >
-            <div class="flex-col">
-              <span class="invoice__list__name">{{ item.name }}</span>
-              <span class="invoice__list__quantity">{{ item.quantity }} x £ {{ item.price }}</span>
-            </div>
-            <span class="invoice__list__price">£ {{ item.price }}</span>
-          </div>
-        </div>
+        <InvoiceItemsTable v-if="width > 600" :invoice-items="invoice.items" />
+        <InvoiceItemsList v-else :invoice-items="invoice.items" />
       </section>
       <section class="invoice__summary flex-sb-c">
         <span class="invoice__amount-due">Amount Due</span>
@@ -99,13 +70,17 @@ import { mapGetters } from 'vuex'
 import Button from '@/components/Button.vue'
 import BackButton from '@/components/BackButton.vue'
 import StatusBadge from '@/components/StatusBadge.vue'
+import InvoiceItemsTable from '@/components/InvoiceItemsTable.vue'
+import InvoiceItemsList from '@/components/InvoiceItemsList.vue'
 
 export default {
   name: 'InvoiceDetails',
   components: {
     Button,
     BackButton,
-    StatusBadge
+    StatusBadge,
+    InvoiceItemsTable,
+    InvoiceItemsList
   },
   props: {
     id: String
@@ -184,12 +159,10 @@ export default {
     color: $violet-lighter;
     font-size: $font-sm;
     margin-bottom: 0.75rem;
-  }
-  &__description {
-    display: block;
-    color: $violet-lighter;
-    font-size: $font-sm;
-    margin-top: 0.5rem;
+    &--description {
+      display: block;
+      margin-top: 0.5rem;
+    }
   }
   &__address {
     color: $violet-lighter;
@@ -214,39 +187,6 @@ export default {
     padding: 2rem 2rem 2.5rem 2rem;
     margin-top: 3rem;
   }
-  &__table {
-    width: 100%;
-    th {
-      font-size: $font-xsm;
-      font-weight: $font-medium;
-      color: $violet-lighter;
-      padding-bottom: 2rem;
-      text-align: left;
-      &:nth-of-type(2) {
-        text-align: center;
-      }
-      &:nth-of-type(3),
-      &:nth-of-type(4) {
-        text-align: right;
-      }
-    }
-    td {
-      font-size: $font-sm;
-      font-weight: $font-bold;
-      color: $black;
-      padding-bottom: 2rem;
-      &:nth-of-type(2) {
-        text-align: center;
-      }
-      &:nth-of-type(3),
-      &:nth-of-type(4) {
-        text-align: right;
-      }
-    }
-  }
-  &__item-mod {
-    color: $violet-lighter !important;
-  }
   &__summary {
     color: $white;
     background-color: $gray;
@@ -259,24 +199,6 @@ export default {
   &__total {
     font-size: 1.5rem;
     font-weight: $font-bold;
-  }
-  &__list {
-    &__item {
-      &:not(:last-of-type) {
-        margin-bottom: 1.5rem;
-      }
-    }
-    &__name,
-    &__price {
-      font-size: $font-sm;
-      font-weight: $font-bold;
-      margin-bottom: 0.5rem;
-    }
-    &__quantity {
-      color: $violet-lighter;
-      font-size: $font-sm;
-      font-weight: $font-bold;
-    }
   }
 }
 </style>
