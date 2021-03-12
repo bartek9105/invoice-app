@@ -5,19 +5,7 @@
       <span class="invoice-list-item__date">Due {{ invoice.paymentDue }}</span>
       <span class="invoice-list-item__name">{{ invoice.clientName }}</span>
       <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
-      <span class="invoice-list-item__status" :class="statusColor">
-        <svg
-          class="invoice-list-item__dot"
-          width="8"
-          height="8"
-          viewBox="0 0 8 8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="4" cy="4" r="4" :fill="dotColor" />
-        </svg>
-        {{ invoiceStatus }}
-      </span>
+      <StatusBadge :status="invoice.status" />
       <img src="@/assets/icons/arrow-right.svg" />
     </div>
     <div v-else class="invoice-list-item invoice-list-item-mobile">
@@ -30,19 +18,7 @@
           <span class="invoice-list-item__date date">Due {{ invoice.paymentDue }}</span>
           <span class="invoice-list-item__total">£ {{ invoice.total }}</span>
         </div>
-        <span class="invoice-list-item__status" :class="statusColor">
-          <svg
-            class="invoice-list-item__dot"
-            width="8"
-            height="8"
-            viewBox="0 0 8 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="4" cy="4" r="4" :fill="dotColor" />
-          </svg>
-          {{ invoiceStatus }}
-        </span>
+        <StatusBadge :status="invoice.status" />
       </div>
     </div>
   </div>
@@ -50,9 +26,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import StatusBadge from '@/components/StatusBadge.vue'
 
 export default {
   name: 'InvoiceListItem',
+  components: {
+    StatusBadge
+  },
   props: {
     invoice: {
       type: Object,
@@ -60,34 +40,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['width']),
-    statusColor() {
-      if (this.invoice.status === 'paid') {
-        return 'green bg-green'
-      }
-      if (this.invoice.status === 'pending') {
-        return 'orange bg-orange'
-      }
-      if (this.invoice.status === 'draft') {
-        return 'gray bg-gray'
-      }
-      return ''
-    },
-    dotColor() {
-      if (this.invoice.status === 'paid') {
-        return '#33D69F'
-      }
-      if (this.invoice.status === 'pending') {
-        return 'orange'
-      }
-      if (this.invoice.status === 'draft') {
-        return 'black'
-      }
-      return ''
-    },
-    invoiceStatus() {
-      return this.invoice.status[0].toUpperCase() + this.invoice.status.slice(1)
-    }
+    ...mapGetters(['width'])
   }
 }
 </script>
@@ -125,18 +78,6 @@ export default {
     font-weight: $font-bold;
     line-height: $line-height-lg;
     letter-spacing: $letter-spacing-md;
-  }
-  &__status {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: $font-bold;
-    width: 104px;
-    height: 40px;
-    border-radius: 0.375rem;
-  }
-  &__dot {
-    margin-right: 0.5rem;
   }
 }
 .invoice-list-item-mobile {

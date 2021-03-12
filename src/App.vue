@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss">
 .wrapper {
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     margin-left: 103px;
     padding: 0 1.5rem;
   }
